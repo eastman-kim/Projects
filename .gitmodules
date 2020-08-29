@@ -1,0 +1,18 @@
+[submodule "[19ML]Predicting_Soccer_Match_Results_to_Improve_Chances_of_Winning_Bets"]
+	path = [19ML]Predicting_Soccer_Match_Results_to_Improve_Chances_of_Winning_Bets
+	url = https://github.com/eastman-kim/Predicting-Soccer-Match-Results-in-English-Primier-League-to-Improve-Chances-of-Winning-Bets.git
+[submodule "[19ML]Fraudulent-Firm-Classification-using-External-Audit-Reports"]
+	path = [19ML]Fraudulent-Firm-Classification-using-External-Audit-Reports
+	url = https://github.com/eastman-kim/Fraudulent-Firm-Classification-Case-Study-of-External-Audit.git
+[submodule "[19FIN]Basic_Stock_Market_Analysis_Practice"]
+	path = [19FIN]Basic_Stock_Market_Analysis_Practice
+	url = https://github.com/eastman-kim/Basic-Stock-Market-Analysis-Project.git
+[submodule "[19FIN]Algorithm_Trading_Kiwoom_Securities_OpenAPI"]
+	path = [19FIN]Algorithm_Trading_Kiwoom_Securities_OpenAPI
+	url = https://github.com/eastman-kim/Algorithm-Trading-using-Kiwoom-Securities-OpenAPI.git
+[submodule "[19DL]FastAI_Practices_PyTorch"]
+	path = [19DL]FastAI_Practices_PyTorch
+	url = https://github.com/eastman-kim/FastAI-Practices-using-PyTorch.git
+[submodule "[19FIN]Calculating_VaR_using_Monte_Carlo_Simulation"]
+	path = [19FIN]Calculating_VaR_using_Monte_Carlo_Simulation
+	url = https://github.com/eastman-kim/Single-Asset-Monte-Carlo-Simulation-using-Python.git
