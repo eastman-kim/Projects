@@ -48,6 +48,14 @@ class Body():
                     sell 해서 받은 돈으로 buy
 
         # Result shown in QTextEdit()
+            ### 표시될 정보
+                MPT weight
+
+                전체 평가액(이거 다 넣으려면 QtTable 넣어야겠는데? 일단 평가액만 넣는걸로 시작하자)
+                    종목이름
+                    종목번호
+                    종목별 보유 주식수
+
             ### curr_nav 다시 불러서 사용
             ### QTextEdit 인스턴스에 .append()
                     
