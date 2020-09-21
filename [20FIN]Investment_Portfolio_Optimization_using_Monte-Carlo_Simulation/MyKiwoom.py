@@ -18,11 +18,16 @@ class MyKiwoom():
         
         self.kiwoom = QAxWidget("KHOPENAPI.KHOpenAPICtrl.1")
         self.main_widget = main_widget
+        self.debug_cnt = 0  #debug
 
-        print("up to MyKiwoom instance")  #debug
+        # print("up to MyKiwoom instance")  #debug
 
         #자동 로그인
         self.ki_login() #off when debugging
+
+        #Recieve Event 까지 wait 이 아니라 혹시 오면 가져오라는 명령이네
+        self.kiwoom.OnReceiveTrData.connect(self.receive_trdata)
+        print("OnReceiveTrData at init")    #debug
 
         #자동 개별 종목 현재가 정보
         # self.price_enumer() #arg로 porfolio 종목 list 줘야함
@@ -43,14 +48,22 @@ class MyKiwoom():
     #개별 종목 현재가 list 만들기
     def price_enumer(self):
         codes = ppf.iloc[:,1].tolist()
+        print("codes = ", codes)    #debug
         prices = []
 
         for c in codes:
-            prices.append(self.fetch_single_price(c))
+            self.fetch_single_price(c)
+
+            print("sleeping in price enumer loop")
+            time.sleep(4)
+
+            # while self.temp_price==0:
+            #     pass
+            prices.append(self.temp_price)
 
         # 다른 method 에서도 쓸꺼니까 Kiwoom.prices 로 만들어 놓는다
         self.prices = prices
-        print("up to price_enumer, prices = ", prices[0])  #debug
+        print("up to price_enumer, prices = ", prices)  #debug
             
     #종목 1개 현재가 검색
     def fetch_single_price(self, code):
@@ -59,16 +72,13 @@ class MyKiwoom():
         #API 요청 -> 정보회수
         #종목 특정 해주는 요청 보내기
         self.kiwoom.dynamicCall("SetInputValue(QString, QString)", "종목코드", code)
-        print("up to fetch set input value")    #debug
+        print("up to fetch set input value : ", code)    #debug
         #TR 특정해주는 요청 보내기
         self.kiwoom.dynamicCall("CommRqData(QString,QString,int,QString)","opt10001_req","opt10001",0,"0101")
-        print("up to fetch commrq")    #debug
-        #Recieve Event 까지 wait -> 현재가 정보 fetch
-        self.kiwoom.OnReceiveTrData.connect(self.receive_trdata)
-        print("up to fetch final")    #debug
-        
+        print("up to fetch commrq, \n call for fetch finish")    #debug
+
+
         # print(self.kiwoom==None)    #debug
-        return self.temp_price
 
     def receive_trdata(self, screen_no, rqname, trcode, recordname, prev_next, data_len, err_code, msg1, msg2):
         if rqname == "opt10001_req":
