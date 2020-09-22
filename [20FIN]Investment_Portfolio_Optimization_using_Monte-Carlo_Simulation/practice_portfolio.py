@@ -14,6 +14,7 @@ import numpy as np
 class practice_portfolio:
     list1 = ["키움증권", "039490", "10", "111"]
     list2 = ["삼성전자", "005930", "10", "222"]
+    list3 = ["NH 투자", "005940", "10", "333"]
 
     df_practice = pd.DataFrame([list1, list2],columns=["종목","종목번호","(기존)보유갯수","(기존)주가"])
 
